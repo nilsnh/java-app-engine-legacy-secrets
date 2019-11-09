@@ -1,55 +1,11 @@
-appengine-standard-archetype
-============================
+# Java legacy secrets example
 
-This is a generated App Engine Standard Java application from the appengine-standard-archetype archetype.
+This project was scaffolded from a java app engine example, [see original readme](scaffolded_readme.md). The purpose of this project is just to show how you can pass secrets as system properties to the running java application.
 
-See the [Google App Engine standard environment documentation][ae-docs] for more
-detailed instructions.
+## Local development
 
-[ae-docs]: https://cloud.google.com/appengine/docs/java/
+1. Run `mvn clean appengine:devserver -DMY_SECRET_KEY=cookies-are-great`. This will start a local development server on http://localhost:8080 displaying the contents of the provided `MY_SECRET_KEY` secret.
 
+## Deployment
 
-* [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Maven](https://maven.apache.org/download.cgi) (at least 3.5)
-* [Google Cloud SDK](https://cloud.google.com/sdk/) (aka gcloud)
-
-## Setup
-
-    gcloud init
-    gcloud auth application-default login
-
-## Maven
-### Running locally
-
-    mvn appengine:devserver
-
-### Deploying
-
-    mvn appengine:update
-
-## Testing
-
-    mvn verify
-
-As you add / modify the source code (`src/main/java/...`) it's very useful to add
-[unit testing](https://cloud.google.com/appengine/docs/java/tools/localunittesting)
-to (`src/main/test/...`).  The following resources are quite useful:
-
-* [Junit4](http://junit.org/junit4/)
-* [Mockito](http://mockito.org/)
-* [Truth](http://google.github.io/truth/)
-
-## Updating to latest Artifacts
-
-An easy way to keep your projects up to date is to use the maven [Versions plugin][versions-plugin].
-
-    mvn versions:display-plugin-updates
-    mvn versions:display-dependency-updates
-    mvn versions:use-latest-versions
-
-Note - Be careful when changing `javax.servlet` as App Engine Standard uses 3.1 for Java 8, and 2.5
-for Java 7.
-
-Our usual process is to test, update the versions, then test again before committing back.
-
-[plugin]: http://www.mojohaus.org/versions-maven-plugin/
+1. Run `mvn appengine:update -DMY_SECRET_KEY=cookies-are-great` to deploy an application to the cloud together with the provided `MY_SECRET_KEY` secret. 
