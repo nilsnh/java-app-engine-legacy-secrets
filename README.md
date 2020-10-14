@@ -1,4 +1,6 @@
-# Java legacy secrets example
+# Deprecated! Java legacy secrets example
+
+Recent Google Cloud changes has made this approach non-viable: [More info](https://nilsnh.no/2019/11/09/managing-the-google-cloud-platform-on-deprecation-notices-and-pricing-policies/).
 
 This project was scaffolded from a java app engine example, [see original readme](scaffolded_readme.md). The purpose of this project is just to show how you can pass secrets as system properties to the running java application.
 
